@@ -1,8 +1,7 @@
 import re
 
-
-
 lights = {}
+brightness = {}
 
 with open('input.txt') as f:
     lines = f.readlines()
@@ -21,14 +20,32 @@ for line in lines:
             light = (x, y)
             if action == 'turn on':
                 lights[light] = True
+                try:
+                    brightness[light] = brightness[light] + 1
+                except KeyError:
+                    brightness[light] = 1
             elif action == 'turn off':
                 if light in lights.keys():
                     del lights[light]
+                if light in brightness.keys():
+
+                    brightness[light] = brightness[light] - 1
+                    if brightness[light] == 0:
+                        del brightness[light]
             else:
                 if light in lights.keys():
-                    if lights[light]:
-                        del lights[light]
+                    del lights[light]
                 else:
                     lights[light] = True
+                try:
+                    brightness[light] = brightness[light] + 2
+                except KeyError:
+                    brightness[light] = 2
 print("2015 Day 6 Part 1")
 print(len(lights))
+
+count = 0
+print("2015 Day 6 Part 2")
+for brightness in brightness.values():
+    count += brightness
+print(count)
