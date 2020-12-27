@@ -1,3 +1,4 @@
+import sys
 from itertools import permutations
 
 from helpers import as_list
@@ -16,7 +17,8 @@ for l in lines:
     distances.setdefault(depart, dict())[arrive] = int(distance)
     distances.setdefault(arrive, dict())[depart] = int(distance)
 
-min, max = 0, 0
+short, long = sys.maxsize, 0
+
 for r in permutations(distances):
     d = 0
     start = r[0]
@@ -24,12 +26,10 @@ for r in permutations(distances):
         end = r[i]
         d += distances[start][end]
         start = end
-    if not min or d < min:
-        min = d
-    if not max or d > max:
-        max = d
+    short = min(short, d)
+    long = max(long, d)
 
 print('2015 Day 9 Part 1')
-print(min)
+print(short)
 print('2015 Day 9 Part 2')
-print(max)
+print(long)
