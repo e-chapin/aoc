@@ -9,9 +9,7 @@ def get_sum(input, part=1):
         return sum
 
     try:
-        try:i = int(input)
-        except ValueError:
-            x = 1
+        i = int(input)
         return i
     except TypeError:
         pass
