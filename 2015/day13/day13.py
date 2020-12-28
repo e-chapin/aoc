@@ -1,6 +1,4 @@
 from itertools import permutations
-
-
 from helpers import as_list
 
 # lines = as_list('2015/day13/example-input.txt')
@@ -17,13 +15,13 @@ for line in lines:
     arrangement.setdefault(person, dict())[neighbor] = gain*int(units)
 
 
-def get_max(arrangement):
+def get_max(arr):
     m = -1
-    for group in permutations(arrangement, None):
+    for group in permutations(arr, None):
         sum = 0
         for i, g in enumerate(group):
-            sum += arrangement[g][group[(i + 1) % len(group)]]
-            sum += arrangement[g][group[i + -1]]
+            sum += arr[g][group[(i + 1) % len(group)]]
+            sum += arr[g][group[i + -1]]
             x = 1
         if sum > m:
             m = sum
