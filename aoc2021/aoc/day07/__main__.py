@@ -2,7 +2,8 @@
 
 from pathlib import Path
 
-from aoc.day07 import part1, part2
+from aoc2021.aoc.day07 import part1, part2
+
 
 def read_file(filename):
     path = Path(__file__).parent.resolve()
@@ -10,14 +11,16 @@ def read_file(filename):
         lines = f.read().splitlines()
         return lines
 
+
 def main():
-    input = read_file("./resources/input.txt")
+    data = read_file("./resources/input.txt")
 
     print("--- Part One ---")
-    print("Result:", part1.result(input))
+    print("Result:", part1.result(data))
 
     print("--- Part Two ---")
-    print("Result:", part2.result(input))
+    print("Result:", part2.result(data))
+
 
 if __name__ == "__main__":
     main()

@@ -89,7 +89,7 @@ def gen_template(templates, paths, substitute):
 def main():
     load_dotenv()
     if len(sys.argv) is not 2:
-        print("--- aoc.gen needs one only argument ---")
+        print("--- adventofcode.gen needs one only argument ---")
         return
 
     module_name = sys.argv[1]

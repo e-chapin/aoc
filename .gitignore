@@ -131,5 +131,5 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-2021/.DS_Store
+aoc2021/.DS_Store
 *.DS_Store
